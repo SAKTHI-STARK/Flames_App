@@ -54,7 +54,9 @@ for i in frequency_str_2:
     sum=sum+val
 #passing the final value to calculator function
 result=flames_calculator(sum)
-print(result)
+#dictionaries to show sentence by matching the result
+sentence_dic={'F':"You Have an Amazing Friend",'L':"You Find Your Soulmate with Amazing Love",'A':"You just got Affection with Her",'M':"You Find Your Marriage Partner",'E':"Enimes Found Carefull",'S':"Sibiling in Nature"}
+print(sentence_dic[result[0]])
 
         
 
