@@ -2,6 +2,7 @@ from tkinter import *
 import tkinter as tk
 from tkinter.font import Font
 from flames import *
+from PIL import Image
 #function for the loading window of the app
 window=tk.Tk()
 #function for the main window
@@ -26,15 +27,26 @@ def main_window(Name_app,author_name):
         Name_2.place(x=180,y=110)
         Name_2_val=tk.Entry()
         Name_2_val.place(x=260,y=110,width=200)
+        show_result=""
         #function to communicate with backend
         def connection():
             value_1=Name_1_val.get()
             value_2=Name_2_val.get()
             result=back_end(value_1,value_2)
-            print(result)
+            result_font=Font(size=16,weight='bold')
+            global show_result
+            show_result=Label(window,text=result,bg="blanchedalmond",fg="deeppink3",font=result_font)
+            show_result.place(x=120,y=210)
+        def clear():
+                Name_1_val.delete(0,'end')
+                Name_2_val.delete(0,'end')
+                global show_result
+                show_result.place_forget()
         #creating button to call function
-        Button_calculate=Button(window,text="FIND",fg="RED",command=connection)
+        Button_calculate=Button(window,text="Find",fg="RED",command=connection)
         Button_calculate.place(x=300,y=160)
+        Button_clear=Button(window,text="Clear",fg="RED",command=clear)
+        Button_clear.place(x=340,y=160)
     main_window_elements()
 #function for loading window
 def loading():
