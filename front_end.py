@@ -6,6 +6,7 @@ from tkinter.font import Font
 # window=Tk()
 window=tk.Tk()
 
+
 def main_window(Name_app,author_name):
     #to dissapear existing text in the window
     Name_app.place_forget()
@@ -15,18 +16,21 @@ def main_window(Name_app,author_name):
     def main_window_elements():
         #display flames calculator in the main window
         Header_font=Font(size=22,weight='bold')
-        Header=tk.Label(window,text="FLAMES CALCULATOR",bg="blanchedalmond",fg="deeppink4",font=Header_font)
-        Header.grid(row=0,column=3)
+        Header=tk.Label(window,text="FLAMES CALCULAT💘R",bg="blanchedalmond",fg="deeppink4",font=Header_font)
+        Header.place(x=150,y=20)
         #labels to get show what to do Name_1 
         Name_1=tk.Label(window,text="Your Name",bg="blanchedalmond",fg="black")
-        Name_1.grid(row=1,column=0)
+        Name_1.place(x=180,y=80)
         Name_1_val=tk.Entry()
-        Name_1_val.grid(row=1,column=2)
+        Name_1_val.place(x=260,y=80,width=200)
+       
         #labels to get show what to do Name_2
         Name_2=tk.Label(window,text="Crush Name",bg="blanchedalmond",fg="black")
-        Name_2.grid(row=2,column=0)
+        Name_2.place(x=180,y=110)
         Name_2_val=tk.Entry()
-        Name_2_val.grid(row=2,column=2)
+        Name_2_val.place(x=260,y=110,width=200)
+
+        
     
     main_window_elements()
     
@@ -51,6 +55,7 @@ def loading():
     
         
 loading()
+
 
 
     
