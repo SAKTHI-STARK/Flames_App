@@ -2,10 +2,11 @@ from tkinter import *
 import tkinter as tk
 from tkinter.font import Font
 from flames import *
-from PIL import Image
+from gif_animation import AnimatedGIF
 #function for the loading window of the app
 window=tk.Tk()
 #function for the main window
+
 def main_window(Name_app,author_name):
     #to dissapear existing text in the window
     Name_app.place_forget()
@@ -37,6 +38,11 @@ def main_window(Name_app,author_name):
             global show_result
             show_result=Label(window,text=result,bg="blanchedalmond",fg="deeppink3",font=result_font)
             show_result.place(x=120,y=210)
+             # Create and place the GIF label
+            if result=="You Find Your Soulmate with Amazing Love":
+                gif_label = AnimatedGIF(window, "App_images\\running love.gif")
+                gif_label.place(x=200,y=250)
+                AnimatedGIF(gif_label)
         def clear():
                 Name_1_val.delete(0,'end')
                 Name_2_val.delete(0,'end')
@@ -53,7 +59,7 @@ def loading():
     window.geometry("400x200")
     window.configure(bg="blanchedalmond")
     #icon for our app title
-    icon=PhotoImage(file="App_images\icons8-heart-50.png")
+    icon=PhotoImage(file="App_images\\icons8-heart-50.png")
     window.iconphoto(True,icon)
     window.title("FLAMES CALCULATOR")
     #creating name for our app name
