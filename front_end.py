@@ -6,7 +6,6 @@ from gif_animation import AnimatedGIF
 #function for the loading window of the app
 window=tk.Tk()
 #function for the main window
-
 def main_window(Name_app,author_name):
     #to dissapear existing text in the window
     Name_app.place_forget()
@@ -29,7 +28,8 @@ def main_window(Name_app,author_name):
         Name_2_val=tk.Entry()
         Name_2_val.place(x=260,y=110,width=200)
         show_result=""
-        #function to communicate with backend
+        gif_label=""
+       #function to communicate with backend
         def connection():
             value_1=Name_1_val.get()
             value_2=Name_2_val.get()
@@ -40,14 +40,23 @@ def main_window(Name_app,author_name):
             show_result.place(x=120,y=210)
              # Create and place the GIF label
             if result=="You Find Your Soulmate with Amazing Love":
+                global gif_label
                 gif_label = AnimatedGIF(window, "App_images\\running love.gif")
                 gif_label.place(x=200,y=250)
                 AnimatedGIF(gif_label)
+            elif result=="Enimes Found Carefull":
+                gif_label = AnimatedGIF(window, "App_images\\enemy.gif")
+                gif_label.place(x=200,y=250)
+                AnimatedGIF(gif_label)
+                #clear the entries and result in the window
         def clear():
                 Name_1_val.delete(0,'end')
                 Name_2_val.delete(0,'end')
                 global show_result
                 show_result.place_forget()
+                global gif_label
+                gif_label.place_forget()
+                
         #creating button to call function
         Button_calculate=Button(window,text="Find",fg="RED",command=connection)
         Button_calculate.place(x=300,y=160)
