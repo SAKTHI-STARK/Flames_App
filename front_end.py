@@ -36,27 +36,21 @@ def main_window(Name_app,author_name):
             result=back_end(value_1,value_2)
             result_font=Font(size=16,weight='bold')
             global show_result
-            show_result=Label(window,text=result,bg="blanchedalmond",fg="deeppink3",font=result_font)
+            show_result=Label(window,text=result[0],bg="blanchedalmond",fg="deeppink3",font=result_font)
             show_result.place(x=120,y=210)
              # Create and place the GIF label
-            if result=="You Find Your Soulmate with Amazing Love":
-                global gif_label
-                gif_label = AnimatedGIF(window, "App_images\\running love.gif")
-                gif_label.place(x=200,y=250)
-                AnimatedGIF(gif_label)
-            elif result=="Enimes Found Carefull":
-                gif_label = AnimatedGIF(window, "App_images\\enemy.gif")
-                gif_label.place(x=200,y=250)
-                AnimatedGIF(gif_label)
-                #clear the entries and result in the window
+            global gif_label
+            gif_label = AnimatedGIF(window,result[1])
+            gif_label.place(x=200,y=250)
+            AnimatedGIF(gif_label)
+        #clear the entries and result in the window
         def clear():
                 Name_1_val.delete(0,'end')
                 Name_2_val.delete(0,'end')
                 global show_result
                 show_result.place_forget()
                 global gif_label
-                gif_label.place_forget()
-                
+                gif_label.place_forget()   
         #creating button to call function
         Button_calculate=Button(window,text="Find",fg="RED",command=connection)
         Button_calculate.place(x=300,y=160)
@@ -68,7 +62,7 @@ def loading():
     window.geometry("400x200")
     window.configure(bg="blanchedalmond")
     #icon for our app title
-    icon=PhotoImage(file="App_images\\icons8-heart-50.png")
+    icon=PhotoImage(file="Flames_App\\App_images\\icons8-heart-50.png")
     window.iconphoto(True,icon)
     window.title("FLAMES CALCULATOR")
     #creating name for our app name

@@ -54,7 +54,10 @@ def back_end(name_1,name_2):
     result=flames_calculator(sum)
     #dictionaries to show sentence by matching the result
     sentence_dic={'F':"You Have an Amazing Friend",'L':"You Find Your Soulmate with Amazing Love",'A':"You just got Affection with Her",'M':"You Find Your Marriage Partner",'E':"Enimes Found Carefull",'S':"Sibiling in Nature"}
-    return sentence_dic[result[0]]
+    #passing GIF based on the value get from the FLAMES
+    animation_dic={'F':"Flames_App\\App_images\\friendgif.gif",'L':"Flames_App\\App_images\\running love.gif",'A':"Flames_App\\App_images\\affection.gif",'M':"Flames_App\\App_images\\marriage-tamannaah-bhatia.gif",'E':"Flames_App\\App_images\\enemy.gif",'S':"Flames_App\\App_images\\brother...-nazriya.gif"}
+    return sentence_dic[result[0]],animation_dic[result[0]]
+    
 
         
 
