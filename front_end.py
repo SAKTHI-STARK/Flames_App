@@ -12,6 +12,7 @@ def main_window(Name_app,author_name):
     author_name.place_forget()
     #to resize the loading window to main window
     window.geometry("600x400")
+    #tkinter window customization
     def main_window_elements():
         #display flames calculator in the main window
         Header_font=Font(size=22,weight='bold')
@@ -27,8 +28,19 @@ def main_window(Name_app,author_name):
         Name_2.place(x=180,y=110)
         Name_2_val=tk.Entry()
         Name_2_val.place(x=260,y=110,width=200)
-        show_result=""
-        gif_label=""
+        #assining global variables used in window
+        global gif_label
+        global show_result
+        global count
+        count=0
+        #check function to check wheather the value present or not
+        def check():
+            global count
+            if count==0:
+                connection()
+            else:
+                clear_label()
+                connection()
        #function to communicate with backend
         def connection():
             value_1=Name_1_val.get()
@@ -38,6 +50,8 @@ def main_window(Name_app,author_name):
             global show_result
             show_result=Label(window,text=result[0],bg="blanchedalmond",fg="deeppink3",font=result_font)
             show_result.place(x=120,y=210)
+            global count
+            count=count+1
              # Create and place the GIF label
             global gif_label
             gif_label = AnimatedGIF(window,result[1])
@@ -50,9 +64,15 @@ def main_window(Name_app,author_name):
                 global show_result
                 show_result.place_forget()
                 global gif_label
-                gif_label.place_forget()   
+                gif_label.place_forget()
+        #when clicking find second time it clear labels present in the window
+        def clear_label():
+                global show_result
+                show_result.place_forget()
+                global gif_label
+                gif_label.place_forget()
         #creating button to call function
-        Button_calculate=Button(window,text="Find",fg="RED",command=connection)
+        Button_calculate=Button(window,text="Find",fg="RED",command=check)
         Button_calculate.place(x=300,y=160)
         Button_clear=Button(window,text="Clear",fg="RED",command=clear)
         Button_clear.place(x=340,y=160)
